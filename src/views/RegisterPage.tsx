@@ -106,7 +106,7 @@ export function RegisterPage({ onNavigateToLogin, onRegisterSuccess, showError, 
                 <Input
                   id="register-name"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Nama lengkap"
                   value={registerData.name}
                   onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
                   className="pl-10"

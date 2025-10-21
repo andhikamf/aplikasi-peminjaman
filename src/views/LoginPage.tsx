@@ -103,7 +103,7 @@ export function LoginPage({ onNavigateToRegister, onLoginSuccess, showError }: L
                 <Input
                   id="login-password"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder="masukkan password (6 huruf)"
                   value={loginData.password}
                   onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                   className="pl-10"

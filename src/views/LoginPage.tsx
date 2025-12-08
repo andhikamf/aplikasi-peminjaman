@@ -22,11 +22,11 @@ export function LoginPage({ onNavigateToRegister, onLoginSuccess, showError }: L
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     const success = await login(loginData.email, loginData.password);
-    
+
     setIsLoading(false);
-    
+
     if (success) {
       onLoginSuccess();
     } else {

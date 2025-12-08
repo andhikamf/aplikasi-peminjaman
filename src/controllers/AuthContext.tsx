@@ -58,7 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       role: 'user',
       createdAt: new Date()
     };
-    
+
     MOCK_USERS.push({ ...newUser, password });
     setUser(newUser);
     localStorage.setItem('user', JSON.stringify(newUser));

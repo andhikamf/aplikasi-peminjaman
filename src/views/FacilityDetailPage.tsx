@@ -68,12 +68,21 @@ export function FacilityDetailPage({ facility, onBack, showSuccess, showError }:
         return 'Tidak Tersedia';
     }
   };
+  const isTimeInRange = (time: string) => {
+  return time >= "05:00" && time <= "21:00";
+  };
+
 
   const handleReservation = () => {
     if (!selectedDate || !startTime || !endTime || !purpose) {
       showError('Mohon lengkapi semua data reservasi');
       return;
     }
+    if (!isTimeInRange(startTime) || !isTimeInRange(endTime)) {
+    showError("Reservasi hanya tersedia pukul 05.00 – 21.00");
+    return;
+}
+
 
     if (startTime >= endTime) {
       showError('Waktu selesai harus lebih besar dari waktu mulai');
@@ -319,6 +328,8 @@ export function FacilityDetailPage({ facility, onBack, showSuccess, showError }:
                   <Input
                     id="start-time"
                     type="time"
+                    min="05:00"
+                    max="21:00"
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                     className="pl-10"
@@ -333,6 +344,8 @@ export function FacilityDetailPage({ facility, onBack, showSuccess, showError }:
                   <Input
                     id="end-time"
                     type="time"
+                    min="05:00"
+                    max="21:00"
                     value={endTime}
                     onChange={(e) => setEndTime(e.target.value)}
                     className="pl-10"
